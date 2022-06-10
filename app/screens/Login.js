@@ -17,7 +17,7 @@ import { showError, showSuccess } from '../utils/showMessage';
 import instance from '../api/axios';
 import validation from '../utils/validation';
 
-const Login = () => {
+const Login = ({ navigation }) => {
 
     const [state, setState] = React.useState({
         email: '',
@@ -50,13 +50,25 @@ const Login = () => {
 
     const handleLogin = () => {
         const isValid = validate();
+        const data = {
+            email: email,
+            password: password
+        };
+
+        const json = JSON.stringify(data);
+
         if (isValid) {
-            instance.post('/login.php', {
-                email: 'Fred',
-                password: '123456789'
-            })
+            instance.post('/login.php', json)
                 .then(function (response) {
-                    console.log(response);
+                    if (response) {
+                        if (response.code == 0) {
+                            showSuccess("Login Success !");
+                            navigation.navigate("Home");
+                        }
+                        else {
+                            showError(response.data);
+                        }
+                    }
                 })
                 .catch(function (error) {
                     console.log(error);
