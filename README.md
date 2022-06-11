@@ -15,3 +15,7 @@ source code trên thiết bị thật
 
 3. File biên dịch apk
 - Để chạy file biên dịch apk, chỉ cần cấu hình database và api như ở mục 2, sau đó đưa file apk lên thiết bị máy ảo android chờ máy ảo cài đặt xong, sau đó mở app và dùng.
+
+4. Tài khoản để test:
+- username : minhtrang
+- password: 123456789
