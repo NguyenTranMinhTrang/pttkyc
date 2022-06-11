@@ -18,16 +18,12 @@ const checkMinLength = (value, minlength, key) => {
 }
 
 export default function (data) {
-    const { email, password } = data;
+    const { username, password } = data;
 
-    if (email !== undefined) {
-        let emptyValidationText = checkEmpty(email, 'Please enter your email !');
+    if (username !== undefined) {
+        let emptyValidationText = checkEmpty(username, 'Please enter your username !');
         if (emptyValidationText !== '') {
             return emptyValidationText;
-        } else {
-            if (!validator.email(email)) {
-                return "Please enter valid email !";
-            }
         }
     }
 

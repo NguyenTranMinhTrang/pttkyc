@@ -2,7 +2,6 @@ import React from 'react';
 import {
     View,
     Text,
-    SafeAreaView,
     ImageBackground,
     TextInput,
     TouchableOpacity,
@@ -20,12 +19,12 @@ import validation from '../utils/validation';
 const Login = ({ navigation }) => {
 
     const [state, setState] = React.useState({
-        email: '',
+        username: '',
         password: '',
         hide: true
     });
 
-    const { email, password, hide } = state;
+    const { username, password, hide } = state;
 
     const updateState = (newState) => {
         setState({
@@ -37,7 +36,7 @@ const Login = ({ navigation }) => {
     const validate = () => {
 
         const error = validation({
-            email: email,
+            username: username,
             password: password
         })
 
@@ -51,7 +50,7 @@ const Login = ({ navigation }) => {
     const handleLogin = () => {
         const isValid = validate();
         const data = {
-            email: email,
+            username: username,
             password: password
         };
 
@@ -103,7 +102,7 @@ const Login = ({ navigation }) => {
                     marginTop: SIZES.padding
                 }}
             >
-                <Text style={{ ...FONTS.h3_light, color: COLORS.primary }}>Email</Text>
+                <Text style={{ ...FONTS.h3_light, color: COLORS.primary }}>Username</Text>
                 <View
                     style={{
                         flexDirection: "row",
@@ -124,14 +123,14 @@ const Login = ({ navigation }) => {
                     </View>
 
                     <TextInput
-                        placeholder="Your Email ..."
+                        placeholder="Your Username ..."
                         placeholderTextColor={COLORS.white}
-                        value={email}
+                        value={username}
                         style={{
                             ...FONTS.h3_light,
                             color: COLORS.white
                         }}
-                        onChangeText={(email) => updateState({ email: email })}
+                        onChangeText={(username) => updateState({ username: username })}
                     />
                 </View>
 

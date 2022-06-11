@@ -5,10 +5,13 @@ import {
     SafeAreaView,
     TouchableOpacity,
     FlatList,
-    Image
+    Image,
+    LogBox
 } from 'react-native';
 import { images, COLORS, SIZES, FONTS } from "../constants";
 import { Ionicons, AntDesign, SimpleLineIcons } from '@expo/vector-icons';
+
+LogBox.ignoreLogs(['Warning: Each']);
 
 const Home = ({ navigation }) => {
 
