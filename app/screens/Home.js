@@ -6,7 +6,9 @@ import {
     TouchableOpacity,
     FlatList,
     Image,
-    LogBox
+    LogBox,
+    StatusBar,
+    Platform
 } from 'react-native';
 import { images, COLORS, SIZES, FONTS } from "../constants";
 import { Ionicons, AntDesign, SimpleLineIcons } from '@expo/vector-icons';
@@ -224,7 +226,7 @@ const Home = ({ navigation }) => {
 
     return (
         <SafeAreaView
-            style={{ flex: 1, backgroundColor: COLORS.black, }}
+            style={{ flex: 1, backgroundColor: COLORS.black, paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0 }}
         >
             {renderHeader()}
             {renderContent()}
